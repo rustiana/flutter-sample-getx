@@ -36,13 +36,28 @@ class Home extends StatelessWidget {
           )
         ],
       )),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text("Hello this is Home"),
-          onPressed: () {},
-          //onPressed: () => Get.to(Other()),
+      body: Wrap(children: [
+        Center(
+          child: ElevatedButton(
+            child: const Text("Snackbar"),
+            onPressed: () {
+              Get.snackbar("Hi", "I am a Denrus");
+            },
+            //onPressed: () => Get.to(Other()),
+          ),
         ),
-      ),
+        Center(
+          child: ElevatedButton(
+            child: const Text("Dialog"),
+            onPressed: () {
+              Get.defaultDialog(
+                  onConfirm: (() => print("Okay")),
+                  middleText: "Hello dialog denrus");
+            },
+            //onPressed: () => Get.to(Other()),
+          ),
+        ),
+      ]),
     );
   }
 }
